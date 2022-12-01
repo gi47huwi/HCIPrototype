@@ -266,16 +266,38 @@ function Configuration({
     <div className="panel">
         <Row style={{height:"90vh"}}>
             <Col md={6} style={{backgroundColor:"grey", padding:"50px 50px 50px 50px"}}>
-                {Object.keys(config).map((element)=>{
-                    if(config[element]){
-                        return(
-                            <li>
-                                {config[element]}
-                            </li>
-                        )
-                    }
-                    
-                })}
+                
+            <MDBTable>
+                    <MDBTableHead>
+                        <tr>
+                        <th scope='col'></th>
+                        <th scope='col'>Name</th>
+                        <th scope='col'>Auswahl</th>
+                        </tr>
+                    </MDBTableHead>
+                    <MDBTableBody>
+                        {Object.keys(config).map((element)=>{
+                        if(config[element]){
+                            
+                            return(
+                                <tr>
+                                <th></th>
+                                <td>
+                                    {element}
+                                </td>
+                                <td>{config[element]}</td>
+                                </tr>
+                                )
+                            }
+                            
+                            
+                        })}
+                        
+                    </MDBTableBody>
+                    </MDBTable>
+                
+                
+                
 
                 
             </Col>
