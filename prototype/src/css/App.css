@@ -1,0 +1,11 @@
+.App{
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-panel{
+  position: absolute;
+  width: 80vw;
+  left: 10vw;
+  top:30vh
+}
