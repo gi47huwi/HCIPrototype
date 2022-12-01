@@ -9,3 +9,13 @@
   left: 10vw;
   top:30vh
 }
+
+.unclickable{
+  pointer-events: none;
+}
+
+.price{
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
