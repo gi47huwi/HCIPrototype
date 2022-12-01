@@ -14,6 +14,7 @@ function Configuration({
         {
             id:0,
             name:"Case",
+            required:true,
             children:[
                 {
                     childId:0,
@@ -32,6 +33,8 @@ function Configuration({
         {
             id:1,
             name:"Size",
+            required:true,
+
             children:[
                 {
                     childId:0,
@@ -50,6 +53,8 @@ function Configuration({
         {
             id:2,
             name:"CPU",
+            required:true,
+
             children:[
                 {
                     childId:0,
@@ -68,6 +73,8 @@ function Configuration({
         {
             id:3,
             name:"Battery",
+            required:true,
+
             children:[
                 {
                     childId:0,
@@ -88,20 +95,20 @@ function Configuration({
   return (
     <div className="panel">
         <Row style={{height:"90vh"}}>
-            <Col md={6} style={{backgroundColor:"lightgrey"}}>
+            <Col md={6} style={{backgroundColor:"grey"}}>
                 
             </Col>
-            <Col md={6} style={{backgroundColor:"grey"}}>
+            <Col md={6} style={{backgroundColor:"lightgrey"}}>
                 <h2>
                     {templateList[id].name}
                 </h2>
 
-                <MDBAccordion initialActive={1}>
+                <MDBAccordion initialActive={0}>
 
                 {
                     options.map((element)=>{
                         return(
-                            <MDBAccordionItem collapseId={element.id} headerTitle={element.name}>
+                            <MDBAccordionItem collapseId={element.id} headerTitle={element.name + (element.required ? " *" : "") }>
                                 {element.children&&
                                 element.children.map((child)=>{
                                     return(
