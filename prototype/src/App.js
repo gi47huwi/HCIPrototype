@@ -24,7 +24,7 @@ function App() {
     },
     {
         id:1,
-        name:"office Template",
+        name:"Office Template",
         item1:"Dual Sim",
         item2:"Encrypted",
         item3:"good Battery life",
@@ -32,7 +32,7 @@ function App() {
     },
     {
         id:2,
-        name:"gaming Template",
+        name:"Gaming Template",
         item1:"Fast CPU",
         item2:"Retina Display",
         item3:"120 Hz",
@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar bg="light" expand="lg" style={{height:"10vh"}} >
+      <Navbar bg="light" expand="lg" style={{height:"10vh", width:"100vw"}} >
         <Container>
         <Navbar.Brand >
             <img

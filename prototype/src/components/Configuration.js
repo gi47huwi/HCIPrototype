@@ -301,7 +301,7 @@ function Configuration({
 
                 
             </Col>
-            <Col md={6} style={{backgroundColor:"lightgrey"}}>
+            <Col md={6} style={{backgroundColor:"lightgrey", padding:"50px 50px 50px 50px"}}>
                 <h2>
                     {templateList[id].name}
                 </h2>
@@ -333,6 +333,10 @@ function Configuration({
                 <Alert className="price" variant='danger'>
                     {price}
                 </Alert>
+
+                <MDBBtn color="success" className='cart'>
+                    Add to Cart
+                </MDBBtn>
 
                 
             </Col>
