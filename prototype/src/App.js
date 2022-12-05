@@ -9,13 +9,16 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import TemplateSelection from './components/TemplateSelection';
 import Configuration from './components/Configuration';
+import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
+
 
 function App() {
   const navigate = useNavigate();
 
   const [templateList, setTemplateList] = useState([
+    {},
     {
-        id:0,
+        id:1,
         name:"empty Template",
         item1:null,
         item2:null,
@@ -23,7 +26,7 @@ function App() {
         item4:null
     },
     {
-        id:1,
+        id:2,
         name:"Office Template",
         item1:"Dual Sim",
         item2:"Encrypted",
@@ -31,14 +34,45 @@ function App() {
         item4:"Stylus included"
     },
     {
-        id:2,
+        id:3,
         name:"Gaming Template",
         item1:"Fast CPU",
         item2:"Retina Display",
         item3:"120 Hz",
         item4:"good Battery life"
-    }
-])
+    },
+    {
+        id:4,
+        name:"Template 4",
+        item1:"ITEM",
+        item2:"ITEM",
+        item3:"ITEM",
+        item4:"ITEM"
+    },
+    {
+        id:5,
+        name:"Template 5",
+        item1:"ITEM",
+        item2:"ITEM",
+        item3:"ITEM",
+        item4:"ITEM"
+    },
+    {
+        id:6,
+        name:"Template 6",
+        item1:"ITEM",
+        item2:"ITEM",
+        item3:"ITEM",
+        item4:"ITEM"
+    },
+    {}
+]);
+const [config, setConfig] = useState({
+  case: null,
+  size:null,
+  cpu:null,
+  battery:null
+});
 
   return (
     <div className="App">
@@ -75,7 +109,43 @@ function App() {
           <>
           <Configuration
           templateList={templateList}
+          config={config}
+          setConfig={setConfig}
           />
+          </>
+
+        }/>
+        <Route path="/cart" element={
+          <>
+          <MDBTable>
+                    <MDBTableHead>
+                        <tr>
+                        <th scope='col'></th>
+                        <th scope='col'>Name</th>
+                        <th scope='col'>Auswahl</th>
+                        </tr>
+                    </MDBTableHead>
+                    <MDBTableBody>
+                        {Object.keys(config).map((element)=>{
+                        if(config[element]){
+                            
+                            return(
+                                <tr>
+                                <th></th>
+                                <td>
+                                    {element}
+                                </td>
+                                <td>{config[element]}</td>
+                                </tr>
+                                )
+                            }
+                            
+                            
+                        })}
+                        
+                    </MDBTableBody>
+                    </MDBTable>
+          
           </>
 
         }/>

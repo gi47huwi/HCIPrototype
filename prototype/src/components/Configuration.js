@@ -1,6 +1,6 @@
 import '../css/App.css';
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
@@ -12,19 +12,13 @@ import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
 
 function Configuration({
-    templateList
+    templateList,
+    config,
+    setConfig
 }) {
+    const navigate = useNavigate();
     const {id} = useParams();
-
-    const [config, setConfig] = useState({
-        case: null,
-        size:null,
-        cpu:null,
-        battery:null
-    })
-
-    const [price, setPrice] = useState(0)
-
+    const [price, setPrice] = useState(0);
     const [cpu, setCPU] = useState([
         {
             name:"Intel i9",
@@ -41,8 +35,7 @@ function Configuration({
             performance: "middle",
             price: 200
         }
-    ])
-
+    ]);
     const [battery, setBattery] = useState([
         {
             name:"XYZ",
@@ -59,8 +52,7 @@ function Configuration({
             performance: "middle",
             price: 50
         }
-    ])
-
+    ]);
     const [options, setOptions] = useState([
         {
             id:0,
@@ -238,9 +230,7 @@ function Configuration({
                 
             ]
         }
-    ])
-    
-
+    ]);
     const setData = (e) => {
         console.log(e.target)
         var data = e.target.name.split("_");
@@ -334,7 +324,7 @@ function Configuration({
                     {price}
                 </Alert>
 
-                <MDBBtn color="success" className='cart'>
+                <MDBBtn color="success" className='cart' onClick={()=>(navigate("/cart"))}>
                     Add to Cart
                 </MDBBtn>
 
