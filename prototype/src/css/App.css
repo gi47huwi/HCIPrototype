@@ -3,25 +3,33 @@
   height: 100vh;
   overflow-y: hidden;
   overflow-x: hidden;
+  
+  background-color: #ebfada;
 }
 
 
 
 .main-panel{
   position: absolute;
-  width: 60vw;
-  left: 20vw;
+  width: 1000px;
+  left: 200px;
   top:40vh;
+  padding: 10px 10px 10px 10px
 }
 
 .overlay{
   position: absolute;
   z-index: 200;
-  scale: 0.4;
+  margin-left: -58px;
+  scale: 0.35;
   top:-700px;
   pointer-events: none;
 }
 
+.swiper-button-next{
+  color:black;
+
+}
 
 .panel{
   width: 100vw;

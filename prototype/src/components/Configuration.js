@@ -10,6 +10,8 @@ import Slider from '@mui/material/Slider';
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import Form from 'react-bootstrap/Form';
 import Alert from 'react-bootstrap/Alert';
+import Smartphone from '../config/Smartphone.png';
+
 
 function Configuration({
     templateList,
@@ -40,17 +42,22 @@ function Configuration({
         {
             name:"XYZ",
             performance: "high",
-            price: 100
+            price: 100,
+            checked:false
         },
         {
             name:"ABC",
             performance: "middle",
-            price: 80
+            price: 80,
+            checked:false
+
         },
         {
             name:"LMN",
             performance: "middle",
-            price: 50
+            price: 50,
+            checked:true
+
         }
     ]);
     const [options, setOptions] = useState([
@@ -114,15 +121,17 @@ function Configuration({
                     childName:"sizeslider",
                     component:
                         <Slider
-                            aria-label="Temperature"
+                            aria-label="size"
                             defaultValue={30}
+                            
                             valueLabelDisplay="auto"
                             name="size"
-                            step={10}
+                            step={5}
                             marks
-                            min={10}
-                            max={110}
-                            onChange={(e)=>setData(e)}
+                            min={25}
+                            max={50}
+                            onChange={(e)=>{
+                                setData(e)}}
                             />
                     
                 }
@@ -205,9 +214,25 @@ function Configuration({
                                 return(
                                     <tr>
                                     <th scope='row'>
-                                        <Form.Check 
+                                        <Form.Check
+                                        checked={element.checked}
+                                        id={"battery_"+element.name}
                                         name={'battery'+"_"+element.price}
-                                        onClick={(e)=>setData(e)}
+                                        onClick={(e)=>{
+                                            battery.map((el,id)=>{
+                                                if(e.target.id !== "battery_"+el.name){
+                                                    var newBattery = battery;
+                                                    newBattery[id].checked = false;
+                                                    setBattery(prev=>(newBattery));
+                                                }else{
+                                                    var newBattery = battery;
+                                                    newBattery[id].checked = true;
+                                                    setBattery(prev=>(newBattery));
+                                                }
+                                                
+                                            })
+                                            setData(e);
+                                        }}
                                         value={element.name}
                                         
                                         />
@@ -253,11 +278,19 @@ function Configuration({
     }
 
   return (
+    <>
+    
+    <div className="overlay-main" style={{display:"flex", justifyContent:"center",position:"absolute" ,height:"90vh", width:"50vw"}}>
+            <img src={Smartphone} style={{position:"relative",scale:String(0.02*config.size), zIndex:"200"}}></img>
+    </div>
     <div className="panel">
+        
         <Row style={{height:"90vh"}}>
-            <Col md={6} style={{backgroundColor:"grey", padding:"50px 50px 50px 50px"}}>
-                
-            <MDBTable>
+            <Col md={6} style={{
+                backgroundColor:"#ebfada", 
+                padding:"50px 50px 50px 50px"}}>
+            <div style={{width: `${7*config.size}px`,height: `${7*config.size}px`, left:`100px`, top:`40%`, position:"absolute"}}>
+            <MDBTable as={"div"}>
                     <MDBTableHead>
                         <tr>
                         <th scope='col'></th>
@@ -285,6 +318,7 @@ function Configuration({
                         
                     </MDBTableBody>
                     </MDBTable>
+                    </div>
                 
                 
                 
@@ -332,6 +366,7 @@ function Configuration({
             </Col>
         </Row>
     </div>
+    </>
   )
 }
 

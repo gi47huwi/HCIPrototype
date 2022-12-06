@@ -36,7 +36,7 @@ function TemplateSelection({
                 <SwiperSlide key={element.id} >
                     {element.id!==undefined?
                     <Card 
-                    style={{width:"300px"}}
+                    style={{width:"300px", padding:"10px 10px 10px 10px"}}
                     onClick={(e)=>(navigate(`/configurator/template=${element.id}`))}
                     >
                         <Card.Title style={{textTransform:"uppercase", marginLeft:"20px"}}>
@@ -62,7 +62,7 @@ function TemplateSelection({
                         </Card.Body>
                         }
                     </Card>
-                    :<Card style={{width:"300px"}}>
+                    :<Card style={{width:"300px", backgroundColor:"#ebfada", boxShadow:"none"}}>
                         <Card.Title style={{textTransform:"uppercase", marginLeft:"20px"}}>
                             {element.name}
                         </Card.Title>

@@ -69,7 +69,7 @@ function App() {
 ]);
 const [config, setConfig] = useState({
   case: null,
-  size:null,
+  size:30,
   cpu:null,
   battery:null
 });
