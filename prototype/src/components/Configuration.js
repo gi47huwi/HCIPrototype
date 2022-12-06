@@ -254,6 +254,39 @@ function Configuration({
                 },
                 
             ]
+        },
+        {
+            id:4,
+            name:"Item 4",
+            required:false,
+
+            children:[
+                {childId:0,
+                childName:"batterylife",
+                component:<></>} 
+            ]
+        },
+        {
+            id:5,
+            name:"Item 5",
+            required:false,
+
+            children:[
+                {childId:0,
+                childName:"batterylife",
+                component:<></>} 
+            ]
+        },
+        {
+            id:6,
+            name:"Item 6",
+            required:false,
+
+            children:[
+                {childId:0,
+                childName:"batterylife",
+                component:<></>} 
+            ]
         }
     ]);
     const setData = (e) => {
@@ -325,7 +358,7 @@ function Configuration({
 
                 
             </Col>
-            <Col md={6} style={{backgroundColor:"lightgrey", padding:"50px 50px 50px 50px"}}>
+            <Col md={6} style={{backgroundColor:"lightgrey", padding:"50px 50px 50px 50px", height:"90vh", overflowY:"scroll"}}>
                 <h2>
                     {templateList[id].name}
                 </h2>
